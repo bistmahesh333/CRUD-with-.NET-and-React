@@ -11,8 +11,6 @@ namespace API.Models
         public string password { get; set; } = "";
         public string fullname { get; set; } = "";
         public string dob { get; set; } = "";
-        public object Dob { get; internal set; }
         public string email { get; set; } = "";
-        public object Email { get; internal set; }
     }
 }
