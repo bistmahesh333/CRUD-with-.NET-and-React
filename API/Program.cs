@@ -1,4 +1,4 @@
-using API.DataAccess;
+using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
