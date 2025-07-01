@@ -1,45 +1,46 @@
-import React, { useState } from 'react';
+// pages/signup.js
+import { useEffect, useState } from 'react';
 
-function App() {
-  const [id, setId] = useState('');
+export default function SignupPage() {
   const [data, setData] = useState([]);
+  const [id, setId] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const fetchSignupData = async () => {
+  const fetchData = async () => {
     if (!id) return;
-    setLoading(true);
 
+    setLoading(true);
     try {
-      const response = await fetch(`http://localhost:5000/GetSignup?id=${id}`);
-      const result = await response.json();
+      const res = await fetch(`http://localhost:5000/GetSignup?id=${id}`);
+      const result = await res.json();
       setData(result);
     } catch (error) {
-      console.error('Error fetching signup data:', error);
+      console.error('Error fetching data:', error);
       setData([]);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
     <div style={{ padding: '2rem' }}>
-      <h1>Signup Viewer</h1>
+      <h2>Signup Details</h2>
 
       <div style={{ marginBottom: '1rem' }}>
         <input
           type="number"
           value={id}
           onChange={(e) => setId(e.target.value)}
-          placeholder="Enter ID"
+          placeholder="Enter Signup ID"
         />
-        <button onClick={fetchSignupData} style={{ marginLeft: '10px' }}>
+        <button onClick={fetchData} style={{ marginLeft: '10px' }}>
           Fetch
         </button>
       </div>
 
       {loading && <p>Loading...</p>}
 
-      {!loading && data.length > 0 && (
+      {data.length > 0 && (
         <table border="1" cellPadding="10">
           <thead>
             <tr>
@@ -51,8 +52,8 @@ function App() {
           <tbody>
             {data.map((row, i) => (
               <tr key={i}>
-                {Object.values(row).map((val, j) => (
-                  <td key={j}>{val === null ? '' : val.toString()}</td>
+                {Object.values(row).map((value, j) => (
+                  <td key={j}>{value === null ? '' : value.toString()}</td>
                 ))}
               </tr>
             ))}
@@ -60,9 +61,7 @@ function App() {
         </table>
       )}
 
-      {!loading && data.length === 0 && id && <p>No data found.</p>}
+      {!loading && data.length === 0 && <p>No data found</p>}
     </div>
   );
 }
-
-export default App;

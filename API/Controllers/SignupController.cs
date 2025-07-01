@@ -74,7 +74,7 @@ namespace API.Controllers
         {
             try
             {
-                string sql = @"SELECT signup.cfn_get_signup(@Id);";
+                string sql = @"SELECT signup.cfn_get_signup(@Id);";    
 
                 var parameters = new { Id = id };
 
