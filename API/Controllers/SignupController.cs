@@ -80,7 +80,7 @@ namespace API.Controllers
 
                 var result = await _db.LoadDataRefCursor<dynamic, dynamic>(sql, parameters);
 
-                return Ok(result);
+                return result.Count() ==0 ? NotFound():Ok(result);
             }
             catch (Exception ex)
             {

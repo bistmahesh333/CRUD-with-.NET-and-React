@@ -10,7 +10,7 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:5000/GetSignup?id=${id}`);
+      const response = await fetch(`https://localhost:7077/api/Signup/GetSignup?id=${id}`);
       const result = await response.json();
       setData(result);
     } catch (error) {

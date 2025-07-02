@@ -1,4 +1,5 @@
 // pages/signup.js
+
 import { useEffect, useState } from 'react';
 
 export default function SignupPage() {
@@ -11,7 +12,8 @@ export default function SignupPage() {
 
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/GetSignup?id=${id}`);
+        
+      const res = await fetch(`https://localhost:7077/api/Signup/GetSignup?id=${id}`);
       const result = await res.json();
       setData(result);
     } catch (error) {
