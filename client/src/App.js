@@ -1,16 +1,19 @@
 
 import React from 'react';
-import SignupPage from './pages/signup'; 
-import SubtractTwo from './pages/subtract';
-import AddUsers from './pages/addusers';
+// import addStudent from './pages/signup'; 
+// import AddStudent from './pages/addstudent';
+// import GetStudent from './pages/getstudent';
+import EditStudent from './pages/editstudent';
+
 
 
 function App() {
   return (
     <div>
-      <SignupPage />
-      <AddUsers/>
-      <SubtractTwo/>
+      {/* <SignupCrud/> */}
+      {/* <AddStudent/> */}
+      {/* <GetStudent/> */}
+      <EditStudent/>
     </div>
   );
 }
