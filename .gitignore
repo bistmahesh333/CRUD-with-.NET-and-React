@@ -1,14 +1,68 @@
-# Ignore build outputs
+#######################################
+# .NET & Visual Studio
+#######################################
+## Build results
 bin/
 obj/
+out/
 
-# Ignore user-specific files
-.vs/
+## User-specific files
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
 
-# Ignore sensitive local config
-#appsettings.Development.json
+## VS Code
+.vscode/
 
-# Ignore logs
+## Visual Studio
+.vs/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+#######################################
+# Node.js (React)
+#######################################
+node_modules/
+build/
+dist/
+
+# npm log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# dotenv environment variables
+.env
+.env.local
+.env.*.local
+
+#######################################
+# Logs
+#######################################
 *.log
+logs/
+*.pid
+*.seed
+*.pid.lock
+
+#######################################
+# OS / Editor / Misc
+#######################################
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*.tmp
+*.bak
+
+#######################################
+# Git
+#######################################
+.git/
+*.orig
+
