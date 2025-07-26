@@ -1,4 +1,5 @@
-﻿using DataAccess;
+﻿using API.Models;
+using DataAccess;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -35,6 +36,32 @@ namespace API.Controllers
                 return StatusCode(500, new { Message = "Error", Error = ex.Message });
             }
         }
+
+
+        [HttpGet("GetMembers")]
+        public async Task<IActionResult> GetMembers(int? memberId = null, int? memberTypeId = null)
+        {
+            try
+            {
+                string sql = "SELECT member.fn_get_member(@p_member_id, @p_member_type_id);";
+
+                var parameters = new
+                {
+                    p_member_id = memberId,
+                    p_member_type_id = memberTypeId
+                };
+
+                var result = await _db.LoadDataRefCursor<memberATT, dynamic>(sql, parameters);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "Error", Error = ex.Message });
+            }
+        }
+
+
 
 
     }

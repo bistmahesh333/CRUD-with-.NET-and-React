@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from './app/student/page';
+import Page from './app/member/page';
 
 function App() {
   return <Page />;
